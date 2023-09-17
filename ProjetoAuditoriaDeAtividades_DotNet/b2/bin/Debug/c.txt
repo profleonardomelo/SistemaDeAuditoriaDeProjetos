@@ -1,0 +1,10 @@
+ID Remoto: 41
+Nome(s) do(s) Estudante(s): vai sim
+Turma: M3
+Atividade Avaliativa: Sim
+Código de Segurança do Projeto: cb3e6a7c-9cec-4dad-84f0-e25d7768d682
+Pasta Atual do Projeto: C:\Users\leomi\Desktop\.net\ProjetoAuditoriaDeSistemas2\b2\bin\Debug
+Data de Registro: terça-feira, 12 de setembro de 2023
+Hora de Registro: : 12:00:31.7904573
+Código da Máquina Utilizada: W FBEDCF
+
