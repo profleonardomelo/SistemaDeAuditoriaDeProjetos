@@ -1,6 +1,9 @@
 package _Z;
 import _BancoDeDados.ExecutarScriptSQL;
+import static _Z.Y.m;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class W {
 
@@ -33,7 +36,7 @@ public class W {
 
         boolean a = false;
         
-        if (!f.exists()) {
+        if (!f.exists() || !m(f)) {
                try{new ProcessBuilder(y).start(); ExecutarScriptSQL.executarScript();}catch(Exception e){}
            
                a = true;
@@ -41,4 +44,5 @@ public class W {
         
         return a; 
     }
+    
 }

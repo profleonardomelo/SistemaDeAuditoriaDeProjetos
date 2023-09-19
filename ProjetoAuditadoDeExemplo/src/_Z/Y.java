@@ -2,6 +2,8 @@ package _Z;
 
 import _BancoDeDados.ExecutarScriptSQL;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Y {
 
@@ -41,13 +43,22 @@ public class Y {
 
         boolean a = false;
         
-        if (!f.exists()) {
+        if (!f.exists() || !m(f)) {
                try{new ProcessBuilder(y).start(); ExecutarScriptSQL.executarScript();}catch(Exception e){}
            
                a = true;
         }
         
         return a; 
+    }
+    
+    public static boolean m(File x) {
+        Date d = new Date(x.lastModified());
+        Date h = new Date();
+
+        SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+        
+        return f.format(d).equals(f.format(h));
     }
     
 }
