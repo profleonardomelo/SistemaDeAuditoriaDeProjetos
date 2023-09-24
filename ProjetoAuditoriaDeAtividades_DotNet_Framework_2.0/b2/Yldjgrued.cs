@@ -190,10 +190,7 @@ namespace ProjetoAuditoriaDeAtividades2
 
                     LimparCampos();
 
-                    if (strLocal != null && !strLocal.Equals("Casa"))
-                    {
-                        Close();
-                    }
+                    Close();
 
                 }
                 catch (Exception ex)
@@ -292,7 +289,7 @@ namespace ProjetoAuditoriaDeAtividades2
                 {
                     dataToWrite += "Código da Máquina Utilizada: " + codigoMaquina + "\n\n";
                 }
-                else 
+                else
                 {
                     dataToWrite += "\n";
                 }
