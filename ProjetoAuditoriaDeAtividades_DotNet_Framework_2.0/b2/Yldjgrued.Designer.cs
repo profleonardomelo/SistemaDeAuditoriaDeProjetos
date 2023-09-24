@@ -83,10 +83,11 @@
             // txtNomeEstudante
             // 
             this.txtNomeEstudante.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeEstudante.Location = new System.Drawing.Point(296, 145);
+            this.txtNomeEstudante.Location = new System.Drawing.Point(296, 148);
             this.txtNomeEstudante.Name = "txtNomeEstudante";
             this.txtNomeEstudante.Size = new System.Drawing.Size(455, 34);
             this.txtNomeEstudante.TabIndex = 4;
+            this.txtNomeEstudante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeEstudante_KeyPress);
             // 
             // cmbTurma
             // 

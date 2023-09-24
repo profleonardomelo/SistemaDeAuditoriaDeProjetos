@@ -317,5 +317,13 @@ namespace ProjetoAuditoriaDeAtividades2
                 Console.WriteLine("Erro ao salvar os dados no arquivo: " + e.Message);
             }
         }
+
+        private void txtNomeEstudante_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
