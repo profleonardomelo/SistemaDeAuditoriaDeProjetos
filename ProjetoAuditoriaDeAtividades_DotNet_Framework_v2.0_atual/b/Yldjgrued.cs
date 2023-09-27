@@ -138,7 +138,7 @@ namespace ProjetoAuditoriaDeAtividades2
                             }
                         }
 
-                        codigoDaMaquina += macAddress.Substring(macAddress.Length - 5);
+                        codigoDaMaquina += macAddress.Substring(macAddress.Length - 4);
                     }
                 }
                 catch (Exception)
