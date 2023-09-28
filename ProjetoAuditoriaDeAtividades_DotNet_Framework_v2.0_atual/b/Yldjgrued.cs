@@ -53,7 +53,6 @@ namespace ProjetoAuditoriaDeAtividades2
                     NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
                     string macAddress = String.Empty;
                     bool placaEthernet = false;
-                    bool placasInativa = false;
 
                     foreach (NetworkInterface nic in nics)
                     {
@@ -82,63 +81,18 @@ namespace ProjetoAuditoriaDeAtividades2
                         }
                     }
 
-                    if (macAddress == String.Empty)
-                    {
-                        foreach (NetworkInterface nic in nics)
-                        {
-                            if (nic.NetworkInterfaceType == NetworkInterfaceType.Wireless80211
-                                && nic.OperationalStatus == OperationalStatus.Down
-                                && !string.IsNullOrEmpty(nic.GetPhysicalAddress().ToString()))
-                            {
-                                macAddress = nic.GetPhysicalAddress().ToString();
-                                placasInativa = true;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (macAddress == String.Empty)
-                    {
-                        foreach (NetworkInterface nic in nics)
-                        {
-                            if (nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet
-                                && nic.OperationalStatus == OperationalStatus.Down
-                                && !string.IsNullOrEmpty(nic.GetPhysicalAddress().ToString()))
-                            {
-                                macAddress = nic.GetPhysicalAddress().ToString();
-                                placaEthernet = true;
-                                placasInativa = true;
-                                break;
-                            }
-                        }
-                    }
-
                     if (!string.IsNullOrEmpty(macAddress) && macAddress.Length >= 12)
                     {
                         if (!placaEthernet)
                         {
-                            if (!placasInativa)
-                            {
-                                codigoDaMaquina += "W-";
-                            }
-                            else
-                            {
-                                codigoDaMaquina += "W_I-";
-                            }
+                            codigoDaMaquina += "W-";
                         }
                         else
                         {
-                            if (!placasInativa)
-                            {
-                                codigoDaMaquina += "E-";
-                            }
-                            else
-                            {
-                                codigoDaMaquina += "E_I-";
-                            }
+                            codigoDaMaquina += "E-";
                         }
 
-                        codigoDaMaquina += macAddress.Substring(macAddress.Length - 4);
+                        codigoDaMaquina += macAddress.Substring(macAddress.Length - 3);
                     }
                 }
                 catch (Exception)
@@ -159,11 +113,11 @@ namespace ProjetoAuditoriaDeAtividades2
                         conexao = new MySqlConnection(enderecoConexaoMySql);
 
                         String sql = "INSERT INTO historico_de_atividades " +
-                            "(nome_estudante, turma_estudante, avaliativa, " +
+                            "(nome_estudante, turma_estudante, avaliativa, local, " +
                             "codigo_seguranca_projeto, pasta_atual_projeto, " +
                             "data_registro, hora_registro, codigo_maquina) " +
                             "VALUES " +
-                            "(@nomeEstudante, @turmaEstudante, @avaliativa, " +
+                            "(@nomeEstudante, @turmaEstudante, @avaliativa, @local," +
                             "@codigoSegurancaProjeto, @pastaAtualProjeto, " +
                         "@dataRegistro, @horaRegistro, @codigoMaquina)";
 
@@ -171,6 +125,7 @@ namespace ProjetoAuditoriaDeAtividades2
                         comando.Parameters.AddWithValue("@nomeEstudante", nomeEstudante);
                         comando.Parameters.AddWithValue("@turmaEstudante", turmaEstudante);
                         comando.Parameters.AddWithValue("@avaliativa", avaliativa);
+                        comando.Parameters.AddWithValue("@local", strLocal);
                         comando.Parameters.AddWithValue("@codigoSegurancaProjeto", codigoSegurancaProjeto);
                         comando.Parameters.AddWithValue("@pastaAtualProjeto", pastaAtualProjeto);
                         comando.Parameters.AddWithValue("@dataRegistro", dataRegistro);
@@ -274,6 +229,7 @@ namespace ProjetoAuditoriaDeAtividades2
                 dataToWrite += "Nome(s) do(s) Estudante(s): " + nomeEstudante + "\n";
                 dataToWrite += "Turma: " + turmaEstudante + "\n";
                 dataToWrite += "Atividade Avaliativa: " + avaliativa + "\n";
+                dataToWrite += "Local: " + local + "\n";
                 dataToWrite += "Código de Segurança do Projeto: " + codigoSegurancaProjeto + "\n";
 
 

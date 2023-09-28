@@ -46,7 +46,7 @@
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(352, 46);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(450, 52);
+            this.lblTitulo.Size = new System.Drawing.Size(446, 51);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Cadastro de Atividade";
             // 
@@ -144,11 +144,14 @@
             this.cmbLocal.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbLocal.FormattingEnabled = true;
             this.cmbLocal.Items.AddRange(new object[] {
-            "Laboratório de Informática",
+            "Laboratório de Informática I",
+            "Laboratório de Informática II",
+            "Laboratório de Informática III",
+            "Laboratório de Informática IV",
             "Casa"});
             this.cmbLocal.Location = new System.Drawing.Point(296, 356);
             this.cmbLocal.Name = "cmbLocal";
-            this.cmbLocal.Size = new System.Drawing.Size(317, 37);
+            this.cmbLocal.Size = new System.Drawing.Size(350, 37);
             this.cmbLocal.TabIndex = 9;
             // 
             // Yldjgrued
