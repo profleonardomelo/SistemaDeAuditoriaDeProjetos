@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjetoAuditoriaDeAtividades2
 {
@@ -18,6 +20,29 @@ namespace ProjetoAuditoriaDeAtividades2
         {
             if (txtNomeEstudante.Text != "" && cmbTurma.SelectedIndex != -1 && cmbAvaliativa.SelectedIndex != -1 && cmbLocal.SelectedIndex != -1)
             {
+                string texto = txtNomeEstudante.Text;
+                string[] palavras = texto.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                String mensagemNomeESobreNomeValidos = "Insira um nome e sobrenome válidos.";
+
+                if (palavras.Length < 2)
+                {
+                    MessageBox.Show(mensagemNomeESobreNomeValidos);
+                    txtNomeEstudante.Text = "";
+                    return;
+                }
+
+                foreach (string palavra in palavras)
+                {
+                    if (!TemVogal(palavra) || !TemConsoante(palavra))
+                    {
+                        MessageBox.Show(mensagemNomeESobreNomeValidos);
+                        txtNomeEstudante.Text = "";
+                        return;
+                    }
+                }
+
+
                 string nomeEstudante = txtNomeEstudante.Text;
                 string turmaEstudante = cmbTurma.SelectedItem.ToString();
                 string strAvaliativa = cmbAvaliativa.SelectedItem.ToString();
@@ -280,6 +305,16 @@ namespace ProjetoAuditoriaDeAtividades2
             {
                 e.Handled = true;
             }
+        }
+
+        private bool TemVogal(string palavra)
+        {
+            return palavra.Any(c => "aeiouAEIOU".Contains(c));
+        }
+
+        private bool TemConsoante(string palavra)
+        {
+            return palavra.Any(c => char.IsLetter(c) && !"aeiouAEIOU".Contains(c));
         }
     }
 }
