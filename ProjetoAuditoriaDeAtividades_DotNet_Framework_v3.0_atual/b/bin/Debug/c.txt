@@ -1,0 +1,19 @@
+Nome(s) do(s) Estudante(s): teste teste
+Turma: 3C
+Atividade Avaliativa: Não
+Local: Casa
+Código de Segurança do Projeto: bd83795a-3fe7-4b50-a765-e062de208c94
+Data de Registro: 2023-00-01
+Hora de Registro: 01:14:45
+
+ID Remoto: 84
+Nome(s) do(s) Estudante(s): ra ta
+Turma: 3B
+Atividade Avaliativa: Não
+Local: Laboratório de Informática IV
+Código de Segurança do Projeto: a82a5c1b-1298-4ab1-94a6-de616072731d
+Pasta Atual do Projeto: C:\Users\leomi\Desktop\A\.net\ProjetoAuditoriaDeAtividades2\b\bin\Debug
+Data de Registro: 2023-10-09
+Hora de Registro: 14:56:56
+Código da Máquina Utilizada: W-DCF
+
